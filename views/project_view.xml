@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record model="ir.ui.view" id="inherit_project_task">
+        <field name="name">Task</field>
+        <field name="model">project.task</field>
+        <field name="inherit_id" ref="project.view_task_form2"/>
+        <field name="arch" type="xml">
+            <div class="oe_button_box" name="button_box">
+                <button class="oe_stat_button" type="object" name="act_show_sales" icon="fa-usd">
+                    <div class="o_form_field o_stat_info">
+                        <span class="o_stat_value">SO $<field name="total_ventas"/></span>
+                    </div>
+                </button>
+            </div>
+            <div class="oe_button_box" name="button_box">
+                <button class="oe_stat_button" type="object" name="act_show_purchases" icon="fa-usd">
+                    <div class="o_form_field o_stat_info">
+                        <span class="o_stat_value">PO $<field name="total_compras"/></span>
+                    </div>
+                </button>
+            </div>
+
+            <xpath expr="//field[@name='partner_id']" position="after">
+                <field name="provider"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>
